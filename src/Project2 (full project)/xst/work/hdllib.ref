@@ -1,0 +1,6 @@
+EN project2 NULL /home/student1/ssivapra/Desktop/coe758/Project2/Project2/project2.vhd sub00/vhpl00 1763051621
+AR proj2_icon proj2_icon_a /home/student1/ssivapra/Desktop/coe758/Project2/Project2/ipcore_dir/proj2_icon.vhd sub00/vhpl03 1763051618
+AR project2 behavioral /home/student1/ssivapra/Desktop/coe758/Project2/Project2/project2.vhd sub00/vhpl01 1763051622
+EN proj2_ila NULL /home/student1/ssivapra/Desktop/coe758/Project2/Project2/ipcore_dir/proj2_ila.vhd sub00/vhpl04 1763051619
+EN proj2_icon NULL /home/student1/ssivapra/Desktop/coe758/Project2/Project2/ipcore_dir/proj2_icon.vhd sub00/vhpl02 1763051617
+AR proj2_ila proj2_ila_a /home/student1/ssivapra/Desktop/coe758/Project2/Project2/ipcore_dir/proj2_ila.vhd sub00/vhpl05 1763051620
