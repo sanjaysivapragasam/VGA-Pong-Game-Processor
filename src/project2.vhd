@@ -472,5 +472,4 @@ ILA_DATA(23 downto 16) <= R(7 downto 0);
 ILA_DATA(15 downto 8) <= G(7 downto 0);
 ILA_DATA(7 downto 0) <= B(7 downto 0);
 
-
 end Behavioral;
