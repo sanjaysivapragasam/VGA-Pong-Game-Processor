@@ -1,75 +1,71 @@
-# VGA-Pong-Game-Processor
-A real-time two-player Pong game implemented on an Xilinx Spartan-3E FPGA using VHDL, generating VGA output at 640×480 resolution and 60 Hz refresh rate.
+# 🕹️ VGA Pong Game Processor  
+### Real-time FPGA-based video game engine with custom VGA controller (640×480 @ 60Hz)
 
-<img width="681" height="718" alt="image" src="https://github.com/user-attachments/assets/2699aab1-c573-43dd-a231-1b4ed187fef2" />
+<p align="center">
+<img src="https://github.com/user-attachments/assets/2699aab1-c573-43dd-a231-1b4ed187fef2" width="450" alt="Pong Game Screenshot"/>
+</p>
 
+> **A fully hardware-implemented Pong game running on an Xilinx Spartan-3E FPGA. Everything is rendered pixel-by-pixel using VHDL and custom sync timing logic.**
 
+---
 
-Project Overview
+## 🎯 Overview  
 
-This project implements a complete video game processor that interfaces with a VGA monitor to display a functional Pong game. The system generates proper horizontal and vertical synchronization signals, renders dynamic game elements in real-time, and responds to user input through physical switches on the FPGA board.
-Course: COE-758 Digital Systems Engineering
-Date: November 2025
+This project implements a **real-time, two-player Pong system** using VHDL on the Xilinx Spartan-3E FPGA, generating a **640×480 VGA signal at 60Hz**.  
+All graphics, timing, game logic, collisions, scoring, and resets are executed in hardware through synchronous digital logic.
 
-Features
-VGA Signal Generation: 640×480 pixel display at 60 Hz with proper HSYNC and VSYNC timing
-Real-Time Rendering: 25 MHz pixel clock driving frame-by-frame graphics updates
+**📅 Course:** COE758 – Digital Systems Engineering  
+**🗓️ Date:** November 2025  
 
-Game Elements:
-Green playing field with white boundaries
-Two colored paddles (blue and purple) with switch-based controls
-Yellow ball with physics-based movement
-Goal detection with visual feedback (ball turns red)
-Automatic game reset after scoring
+---
 
+## ✨ Key Features  
 
-Collision Detection: Real-time detection and trajectory adjustment for ball-paddle and ball-boundary collisions
-Finite State Machine: Three-state gameplay controller (Gameplay, Scoring, Reset)
+- **Real-time gameplay** with physically controlled board switches  
+- **Custom VGA controller** — HSYNC / VSYNC generation + active video region  
+- **Pixel-level graphics engine** using RGB output  
+- **Finite State Machine gameplay logic** (Gameplay → Scoring → Reset)  
+- **Collision physics** for boundaries + paddles  
+- **Automatic scoring + visual feedback** (ball turns red on goal)  
+- **Timing validation via ChipScope Analyzer**
 
-Technical Implementation
-Hardware
+---
 
-FPGA Board: Xilinx Spartan-3E
-Development Tools: Xilinx ISE 13.4
-Language: VHDL
-Clock: 50 MHz input, divided to 25 MHz pixel clock
+## 🧩 Game Design & Visual Elements  
 
-VGA Timing Specifications
+| Component | Description |
+|----------|-------------|
+| Field | Green grass-style background |
+| Paddles | Blue (P1) & Purple (P2) |
+| Ball | Yellow (normal) → Red (goal scored) |
+| Boundaries | White border + dashed center line |
+| Controls | SW0/SW1 (P1), SW2/SW3 (P2) |
 
-Resolution: 640×480 (active region)
+---
 
-Total Frame: 800×525 clock cycles
+## 🛠️ Technical Breakdown  
 
-Refresh Rate: ~59.5 Hz
+### Hardware & Tools
+- **FPGA:** Xilinx Spartan-3E  
+- **IDE:** Xilinx ISE 13.4  
+- **Language:** VHDL  
+- **Input Clock:** 50 MHz  
+- **Pixel Clock:** 25 MHz (internal divider)
 
-Horizontal Sync: 96 clock cycles (negative polarity)
+### VGA Timing Specs
+| Parameter | Value |
+|-----------|-------|
+| Resolution | 640×480 active |
+| Full Frame | 800×525 cycles |
+| Refresh Rate | ~59.5 Hz |
+| HSYNC Pulse | 96 cycles |
+| VSYNC Pulse | 2 lines |
 
-Vertical Sync: 2 lines (negative polarity)
-
-
-Architecture
-
-The design consists of multiple concurrent VHDL processes:
-
-Clock Divider: Generates 25 MHz pixel clock from 50 MHz input
-
-Display Controller: Manages horizontal and vertical counters
-
-Sync Pulse Generator: Produces HSYNC and VSYNC signals
-
-Collision Detection: Calculates ball trajectory changes
-
-Paddle Controller: Handles switch inputs for player movement
-
-Pixel Renderer: Generates RGB colour outputs for each pixel
-
-Controls
-
-SW0: Move left paddle up
-
-SW1: Move left paddle down
-
-SW2: Move right paddle up
-
-SW3: Move right paddle down
-
+### System Architecture  
+- Clock Divider  
+- Display Scan Counters  
+- Sync Pulse Generator  
+- Paddle Controller  
+- Collision Engine  
+- RGB Pixel Renderer  
+- FSM Game Controller  
