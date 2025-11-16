@@ -15,7 +15,7 @@ This project implements a **real-time, two-player Pong system** using VHDL on th
 All graphics, timing, game logic, collisions, scoring, and resets are executed in hardware through synchronous digital logic.
 
 **📅 Course:** COE758 – Digital Systems Engineering  
-**🗓️ Date:** November 2025  
+**🗓️ Date:** October - November 2025  
 
 ---
 
